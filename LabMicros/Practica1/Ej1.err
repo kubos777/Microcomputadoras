@@ -1,0 +1,5 @@
+Warning[205] C:\USERS\KUBOS\DESKTOP\LABMICROS\EJ1.ASM 5 : Found directive in column 1. (org)
+Warning[203] C:\USERS\KUBOS\DESKTOP\LABMICROS\EJ1.ASM 6 : Found opcode in column 1. (goto)
+Warning[207] C:\USERS\KUBOS\DESKTOP\LABMICROS\EJ1.ASM 8 : Found label after column 1. (inicio)
+Warning[203] C:\USERS\KUBOS\DESKTOP\LABMICROS\EJ1.ASM 11 : Found opcode in column 1. (goto)
+Warning[205] C:\USERS\KUBOS\DESKTOP\LABMICROS\EJ1.ASM 12 : Found directive in column 1. (end)
