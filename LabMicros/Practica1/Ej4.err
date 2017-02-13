@@ -1,0 +1,4 @@
+Warning[205] C:\USERS\KUBOS\DESKTOP\LABMICROS\PRACTICA1\EJ4.ASM 6 : Found directive in column 1. (org)
+Warning[203] C:\USERS\KUBOS\DESKTOP\LABMICROS\PRACTICA1\EJ4.ASM 7 : Found opcode in column 1. (goto)
+Warning[207] C:\USERS\KUBOS\DESKTOP\LABMICROS\PRACTICA1\EJ4.ASM 9 : Found label after column 1. (inicio)
+Warning[205] C:\USERS\KUBOS\DESKTOP\LABMICROS\PRACTICA1\EJ4.ASM 21 : Found directive in column 1. (end)

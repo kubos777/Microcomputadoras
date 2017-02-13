@@ -1,4 +1,4 @@
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  1
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -19,20 +19,20 @@ Warning[203]: Found opcode in column 1. (goto)
 0005                  00008         org 5
 Warning[207]: Found label after column 1. (inicio)
 0005                  00009         inicio: 
-0005   3001           00010         movlw h'01'
-0006   00A6           00011         movwf K
-0007   3007           00012         movlw h'07'
-0008   00A7           00013         movwf J
-                      00014 
-0009                  00015 corrimiento:
-0009   0DA6           00016         rlf K,1
-000A   03A7           00017         decf J,1
-000B   1D03           00018         btfss STATUS,Z ;Salta si 
-000C   2809           00019         goto corrimiento
-000D   2805           00020         goto inicio
+0005   3000           00010         movlw d'00' ;movemos un 0 decimal a w
+0006   00A6           00011         movwf K         ; movemos lo que hay en w a K
+0007   3014           00012         movlw d'20' ; movemos un 20 decimal a w
+0008   00A7           00013         movwf J         ;movemos lo que hay en w a J
+                      00014         
+0009                  00015 contador:
+0009   0AA6           00016         incf K,1 ; Incrementa K en 1
+000A   03A7           00017         decf J,1 ;Decrementa J en 1
+000B   1D03           00018         btfss STATUS,Z ;Salta si  Z=0
+000C   2809           00019         goto contador ; Salta a subrutina contador
+000D   2805           00020         goto inicio ;Saltamos a inicio
 Warning[205]: Found directive in column 1. (end)
                       00021 end
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  2
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  2
 
 
 SYMBOL TABLE
@@ -91,7 +91,7 @@ DATA_ADDRESS                      00000005
 DC                                00000001
 D_A                               00000005
 EEADR                             0000010D
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  3
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  3
 
 
 SYMBOL TABLE
@@ -150,7 +150,7 @@ PCFG2                             00000002
 PCFG3                             00000003
 PCL                               00000002
 PCLATH                            0000000A
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  4
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  4
 
 
 SYMBOL TABLE
@@ -209,7 +209,7 @@ SSPEN                             00000005
 SSPIE                             00000003
 SSPIF                             00000003
 SSPM0                             00000000
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  5
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  5
 
 
 SYMBOL TABLE
@@ -268,7 +268,7 @@ TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
 TXSTA                             00000098
-MPASM  5.35beta                           EJ3.ASM   2-10-2017  12:38:03         PAGE  6
+MPASM  5.35beta                           EJ4.ASM   2-13-2017  10:17:16         PAGE  6
 
 
 SYMBOL TABLE
@@ -304,7 +304,7 @@ _WRT_ENABLE_OFF                   00003DFF
 _WRT_ENABLE_ON                    00003FFF
 _XT_OSC                           00003FFD
 __16F877                          00000001
-corrimiento                       00000009
+contador                          00000009
 inicio                            00000005
 
 

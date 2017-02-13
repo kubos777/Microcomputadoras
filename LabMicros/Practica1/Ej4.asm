@@ -7,15 +7,15 @@ org 0	;Vector RESET
 goto inicio
 	org 5
 	inicio: 
-	movlw h'01' ;movemos un 1 a w
+	movlw d'00' ;movemos un 0 decimal a w
 	movwf K		; movemos lo que hay en w a K
-	movlw h'07' ;movemos un 7 a w
-	movwf J ;movemos lo que hay en w a J
-
-corrimiento:
-	rlf K,1	;Corrimiento a la derecha de uno en uno
-	decf J,1 ; Decrementa J en 1
-	btfss STATUS,Z ;Salta si  Z=1
-	goto corrimiento ; Salta a subrutina corrimiento
+	movlw d'20' ; movemos un 20 decimal a w
+	movwf J		;movemos lo que hay en w a J
+	
+contador:
+	incf K,1 ; Incrementa K en 1
+	decf J,1 ;Decrementa J en 1
+	btfss STATUS,Z ;Salta si  Z=0
+	goto contador ; Salta a subrutina contador
 	goto inicio ;Saltamos a inicio
 end
