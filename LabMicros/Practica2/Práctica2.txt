@@ -1,0 +1,63 @@
+Práctica 2 
+Sistema mínimo microcontrolador 16f877
+
+Configuración de puertos paralelos como puertos o salidas
+
+1.-Cambiar al banco -> 
+						Registro status
+						RP1 RP0
+						0	0	=> banco0
+						0	1	=> banco1
+						1	0	=> banco2
+						1	1	=> banco3
+[
+#Nos cambiamos de banco
+	38400
+	org 0
+		goto inicio
+	org 5
+	inicio: 
+			bsf STATUS,RP0
+			bcf	STATUS,RP1 ;Con esto ya estamos en el banco 1
+			movlw h'00'
+			movwf TRISB ;Como colocamos un 0 el PORTB sera una salida
+			bsf STATUS,RP0 ; Con esto estaremos en el banco 0
+	ciclo:
+			clrf PORTB
+			bsf PORTB,0
+			call retardo
+			bcf PORTB,0
+			call retardo
+			goto ciclo
+	retardo:
+
+			
+
+]
+2.-Configurar registros TRIS
+		TRIS_='0' =>		TRISB=b'0000 1111'
+		TRIS_='1' =>
+3.-Regresar al banco 0
+4.-Configurar registros PORTB
+
+
+*****************************************************************++
+Ciclo máquina=Foscilacion/4
+
+Foscilacion=Frecuencia Oscilación
+		   	Cristal ensamblado
+		   	=20MHz
+Ciclo_maquina= 20MHz/4=5MHz
+T_instruccion=1/5=0.2 uS <-Microsegundos
+
+
+60// 120
+50// 100   ->Implican (1/2) medio segundo
+20// 40
+
+10+12+4=26
+
+
+
+
+

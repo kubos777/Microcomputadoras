@@ -1,0 +1,40 @@
+MPLINK 4.35, Linker
+Linker Map File - Created Wed Feb 15 17:20:15 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000005    program   0x00001c
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x000012      
+            15 out of 8453 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  Retardo   0x00000e    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                   inicio   0x000005    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                     loop   0x000010    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                    loop2   0x000008    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   inicio   0x000005    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                    loop2   0x000008    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                  Retardo   0x00000e    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+                     loop   0x000010    program     static C:\Users\kubOS\Desktop\MicrocomputadorasTeoría\OnLed.asm
+
+
