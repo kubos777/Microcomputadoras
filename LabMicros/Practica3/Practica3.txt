@@ -1,0 +1,37 @@
+Práctica 3
+Puertos Paralelos 2 (Control de acciones)
+
+Puertos como entrada y salida DIGITALES
+Cuando se emplean los puertos paralelos A y E se necesita configurar el registro ADCON1(Ubicado en el banco 1)
+
+						ADCON11
+	|	|	|	|	|PCFG2|PCFG1|PCFG0|           ADCON1 =06H
+						1	1		x					  07H   ->DIGITAL
+
+
+---------------------------------------------------------------------------
+
+inicio:
+	clrf	PORTB
+	clrf	PORTB
+	bsf		STATUS,RP0
+	bcf		STATUS,RP1  ;CAMBIAMOS A BANCO 1
+	movlw	H'07'
+	movwf	ADCON1  ; E/S DIGITALES
+	movlw	H'FF'
+	movwf	TRISA    
+	movlw H'00'
+	movwf TRISB
+	bcf STATUS,RP0 ;CAMBIAMOS A BANCO 0
+ciclo:
+		btfsc PORTA,0
+		goto enciende
+		goto apaga
+apaga:
+		clrf PORTB
+		goto ciclo
+enciende:
+		movlw H'FF'
+		movwf PORTB
+		goto ciclo
+
