@@ -4,7 +4,7 @@ contador equ h'20' ;
 valor1 equ h'21'
 valor2 equ h'22'
 valor3 equ h'23'
-cte1 equ 20h
+cte1 equ 20h      ;Constantes para el retardo
 cte2 equ 50h
 cte3 equ 60h
 
@@ -13,8 +13,8 @@ cte3 equ 60h
  goto inicio ;salto incondicional a inicio
  org 5
 inicio:
-	clrf	PORTB
-	clrf	PORTB
+	clrf	PORTB ;Limpiamos el puerto B
+	clrf	PORTA ;Limpiamos el puerto A
 	bsf		STATUS,RP0
 	bcf		STATUS,RP1  ;CAMBIAMOS A BANCO 1
 	movlw	H'07'
@@ -30,7 +30,7 @@ ciclo:
 		goto c1234 ; Para el caso 1-4
 c1234:
 		btfsc PORTA,1
-		goto c34 ;Para el caso 3y 4
+		goto c34 ;Para el caso 3 y 4
 		goto c12 ; Para el caso 1 y 2
 c12:
 		btfsc PORTA,0
