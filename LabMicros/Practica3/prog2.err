@@ -1,0 +1,13 @@
+Warning[205] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 1 : Found directive in column 1. (processor)
+Message[301] C:\ARCHIVOS DE PROGRAMA\MICROCHIP\MPASM SUITE\P16F877.INC 33 : MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 21 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 23 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 64 : Using default destination of 1 (file).
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 77 : Using default destination of 1 (file).
+Warning[207] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 88 : Found label after column 1. (loop3)
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 91 : Using default destination of 1 (file).
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 118 : Using default destination of 1 (file).
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 120 : Using default destination of 1 (file).
+Message[305] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 122 : Using default destination of 1 (file).
+Warning[205] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROG2.ASM 125 : Found directive in column 1. (end)

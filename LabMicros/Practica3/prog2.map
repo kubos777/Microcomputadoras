@@ -1,0 +1,70 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Wed Dec 14 18:51:12 2016
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000005    program   0x0000ae
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x00005b      
+            88 out of 8454 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                       c1   0x00001f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c12   0x000016    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    c1234   0x000013    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c2   0x000021    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c3   0x000024    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c34   0x000019    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c4   0x00002f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c5   0x00003a    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c56   0x00001c    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c6   0x000047    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    ciclo   0x000010    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      dos   0x000053    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                   inicio   0x000005    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop1   0x000029    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop2   0x000034    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop3   0x00003f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                  retardo   0x00004f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                     tres   0x000051    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      uno   0x000055    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   inicio   0x000005    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    ciclo   0x000010    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    c1234   0x000013    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c12   0x000016    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c34   0x000019    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      c56   0x00001c    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c1   0x00001f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c2   0x000021    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c3   0x000024    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop1   0x000029    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c4   0x00002f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop2   0x000034    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c5   0x00003a    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                    loop3   0x00003f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                       c6   0x000047    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                  retardo   0x00004f    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                     tres   0x000051    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      dos   0x000053    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+                      uno   0x000055    program     static F:\manual y micros\programas de micros\PRACTICA3\prog2.asm
+
+

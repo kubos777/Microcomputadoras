@@ -1,0 +1,6 @@
+Warning[205] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROGRAMA1.ASM 1 : Found directive in column 1. (processor)
+Message[301] C:\ARCHIVOS DE PROGRAMA\MICROCHIP\MPASM SUITE\P16F877.INC 33 : MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROGRAMA1.ASM 12 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROGRAMA1.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROGRAMA1.ASM 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] F:\MANUAL Y MICROS\PROGRAMAS DE MICROS\PRACTICA3\PROGRAMA1.ASM 29 : Found directive in column 1. (end)
