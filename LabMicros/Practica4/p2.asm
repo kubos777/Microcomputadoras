@@ -17,12 +17,12 @@ inicio:
  	movwf 	TRISB	
 	bcf 	STATUS,RP0 ; Regresa al banco cero
 
-PUERTOA:
+PUERTOA:     ;Configuramos las opciones para el dipswitch en bits
 	movf 	PORTA,0	;leer lo que hay en el puerto A y cargarlo en w
-	xorlw	b'00000000'
-	btfsc	STATUS,Z
-	call	paso1
-	movf	PORTA,0
+	xorlw	b'00000000'	;Aplicamos una operación lógica a la literal y verificamos la bandera Z
+	btfsc	STATUS,Z	;Si Z es cero, salta.
+	call	paso1		;Llamamos al paso 1
+	movf	PORTA,0		; Realizamos lo mismo para los pasos siguientes.
 	xorlw	b'00000001'
 	btfsc	STATUS,Z
 	call	paso2
@@ -41,25 +41,25 @@ PUERTOA:
 
 	goto	PUERTOA
 
-paso1:
-	movlw	b'00000000'
-	movwf	PORTB
+paso1:			
+	movlw	b'00000000'  ;Ambos motores estan en paro
+	movwf	PORTB		 ; Se mueve al puerto B la acción
 	return
 paso2:
-	movlw	b'11111111'
-	movwf	PORTB
+	movlw	b'11111111' ; Ambos motores estan habilitados y girando en sentido horario
+	movwf	PORTB		; Se mueve al puerto B la acción
 	return
 paso3:
-	movlw	b'00001010'
-	movwf	PORTB
+	movlw	b'00001010' ;Ambos motores estan habilitados y girando en sentido antihorario
+	movwf	PORTB		; Se mueve al puerto B la acción
 	return
 paso4:
-	movlw	b'00001110'
-	movwf	PORTB
+	movlw	b'00001110' ;Ambos motores estan habilitados pero el motor 1 gira en sentido horario y el 2 al revés
+	movwf	PORTB		; Se mueve al puerto B la acción
 	return
 paso5:
-	movlw	b'00001011'
-	movwf	PORTB
+	movlw	b'00001011'	;Ambos motores estan habilitados pero el motor 2 gira en sentido horario y el 1 al revés.
+	movwf	PORTB		; Se mueve al puerto B la acción
 	return
 	
 	end
