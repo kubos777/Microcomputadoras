@@ -1,0 +1,44 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Sun Dec 25 19:21:14 2016
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000005    program   0x000054
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x00002e      
+            43 out of 8454 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    INFRA   0x00000e    program     static F:\PRACTICA5\prog2.asm   
+                   inicio   0x000005    program     static F:\PRACTICA5\prog2.asm   
+                    paso1   0x000023    program     static F:\PRACTICA5\prog2.asm   
+                    paso2   0x000026    program     static F:\PRACTICA5\prog2.asm   
+                    paso3   0x000029    program     static F:\PRACTICA5\prog2.asm   
+                    paso4   0x00002c    program     static F:\PRACTICA5\prog2.asm   
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   inicio   0x000005    program     static F:\PRACTICA5\prog2.asm   
+                    INFRA   0x00000e    program     static F:\PRACTICA5\prog2.asm   
+                    paso1   0x000023    program     static F:\PRACTICA5\prog2.asm   
+                    paso2   0x000026    program     static F:\PRACTICA5\prog2.asm   
+                    paso3   0x000029    program     static F:\PRACTICA5\prog2.asm   
+                    paso4   0x00002c    program     static F:\PRACTICA5\prog2.asm   
+
+

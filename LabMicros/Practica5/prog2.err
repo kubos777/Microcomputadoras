@@ -1,0 +1,5 @@
+Message[301] C:\ARCHIVOS DE PROGRAMA\MICROCHIP\MPASM SUITE\P16F877.INC 33 : MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+Warning[207] F:\PRACTICA5\PROG2.ASM 4 : Found label after column 1. (A)
+Message[302] F:\PRACTICA5\PROG2.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\PRACTICA5\PROG2.ASM 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] F:\PRACTICA5\PROG2.ASM 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
