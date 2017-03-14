@@ -3,23 +3,25 @@
 	include <p16f877.inc>
 	A equ H'24'	
 	org	0			;Carga al vector de RESET la dirección de inicio
-	goto inicio
-	org 05	 		;Dirección de inicio del programa del usuario
-   
+	goto inicio 
+	org 05	 		;Dirección de inicio del programa del usuario  
 inicio: 
-		clrf PORTA
-		bsf STATUS,RP0
-		bcf STATUS,RP1
-		
-		movlw H'07'
-		movwf ADCON1
-		movlw H'FF'
-		movwf TRISA
-		movlw H'00'
-		movwf TRISB
-		bcf	STATUS,RP0
-INFRA:
-	movf PORTA,0
+		clrf PORTA ;Limpiamos lo que hay en el puerto A
+		bsf STATUS,RP0 ; Nos cambiamos de banco
+		bcf STATUS,RP1	
+		movlw H'07'   
+		movwf ADCON1  ;Configuramos el registro como entrada/salida
+		movlw H'FF'   ;Movemos un 255 a w
+		movwf TRISA   ;Movemos w al registro TRISA
+		movlw H'00'   ;Movemos un 0 a w
+		movwf TRISB    ;Movemos w al registro TRISB
+		bcf	STATUS,RP0 ;Regresamos al banco 0
+
+
+
+INFRA: ;Le asignamos el nombre INFRA a la subrutina
+	
+	movf PORTA,0 
 	movwf A
 	movwf H'07'
 	andwf A,f
@@ -46,21 +48,21 @@ INFRA:
 	goto	inicio
 
 paso1:
-	movlw	b'00001011'
-	movwf	PORTB
+	movlw	b'00001011' ;	El motor 1 gira hacia atrás y el 2 hacia adelante
+	movwf	PORTB		; Movemos el resultado anterior al puerto B que son los motores
 	return
 paso2:
-	movlw	b'11111111'
-	movwf	PORTB
+	movlw	b'11111111'	;Ambos motores giran hacia adelante
+	movwf	PORTB		; Movemos el resultado anterior al puerto B que son los motores
 	return
 paso3:
-	movlw	b'00001110'
-	movwf	PORTB
+	movlw	b'00001110' ;El motor 1 gira hacia adelante y el segundo hacia atrás
+	movwf	PORTB		; Movemos el resultado anterior al puerto B que son los motores
 	return
 paso4:
-	movlw	b'00000000'
-	movwf	PORTB
+	movlw	b'00000000' ;Ambos motores se encuentran en paro cuando no se cubre ningún sensor
+	movwf	PORTB		; Movemos el resultado anterior al puerto B que son los motores
 	return
 
-	end
+	end   ;fin del programa
 		
