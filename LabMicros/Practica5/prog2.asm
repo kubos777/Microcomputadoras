@@ -21,31 +21,31 @@ inicio:
 
 INFRA: ;Le asignamos el nombre INFRA a la subrutina
 	
-	movf PORTA,0 
-	movwf A
-	movwf H'07'
-	andwf A,f
-	movfw A
-	xorlw H'00'
-	btfsc STATUS,Z
-	call paso1
+	movf PORTA,0 ; Leemos lo que hay en puerto A
+	movwf A      ;Lo que contiene w lo movemos a A
+	movwf H'07'	;Movemos un 7 a w
+	andwf A,f   ; Realizamos la operación lógica and entre w y A 
+	movfw A 	; Movemos el resultado anterior a A
+	xorlw H'00' ; Realizamos una operación lógica xor entre la literal 0 y w
+	btfsc STATUS,Z  ;Preguntamos por la bandera, salta si es cero
+	call paso1  ;Hacemos una llamada a paso1
 
-	movf PORTA,0
-	xorlw H'01'
-	btfsc STATUS,Z
-	call paso2
+	movf PORTA,0 ; Leemos lo que hay en puerto A
+	xorlw H'01'  ;Realizamos operación xor entre w y 1
+	btfsc STATUS,Z ;Preguntamos por la bandera, salta si es cero
+	call paso2 ;Hacemos una llamada a paso2
 
-    movf PORTA,0
-	xorlw H'02'
-	btfsc STATUS,Z
-	call paso3
+    movf PORTA,0 ; Leemos lo que hay en puerto A
+	xorlw H'02'   ;Realizamos la operación xor entre w y 2
+	btfsc STATUS,Z ;Preguntamos por la bandera, salta si es cero
+	call paso3 ;Hacemos una llamada a paso3
 
-    movf PORTA,0
-	xorlw H'04'
-	btfsc STATUS,Z
-	call paso4
+    movf PORTA,0 ; Leemos lo que hay en puerto A
+	xorlw H'04' ;Realizamos la operación entre w y 4
+	btfsc STATUS,Z ;Preguntamos por la bandera, salta si es cero
+	call paso4	;Hacemos una llamada a paso4
 
-	goto	inicio
+	goto	inicio  ;Regresamos a inicio
 
 paso1:
 	movlw	b'00001011' ;	El motor 1 gira hacia atrás y el 2 hacia adelante
