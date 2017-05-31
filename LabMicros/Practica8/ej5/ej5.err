@@ -1,0 +1,5 @@
+>>> Warning 203 "ej5.c" Line 9(1,1): Condition always TRUE
+>>> Warning 202 "ej5.c" Line 7(5,6): Variable never used:   i
+      Memory usage:   ROM=7%      RAM=2% - 5%
+      0 Errors,  2 Warnings.
+Build Successful.

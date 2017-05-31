@@ -1,0 +1,82 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     opcion
+021     i
+022     MAIN.valor
+023     MAIN.aux
+024     MAIN.valor2
+025     MAIN.aux2
+026     MAIN.var2
+027     MAIN.conta
+028     MAIN.@SCRATCH1
+028     @PSTRINGC_38400_62_63.@SCRATCH1
+028     @PSTRINGC7_38400_62_63.@SCRATCH1
+029     @delay_ms1.P1
+029     @PSTRINGC_38400_62_63.@SCRATCH2
+029     @PSTRINGC7_38400_62_63.@SCRATCH2
+02A     @PSTRINGC7_38400_62_63.@SCRATCH3
+02B     @PSTRINGC7_38400_62_63.@SCRATCH4
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000102  @delay_ms1
+001F00  loader16F877
+000116  MAIN
+000004  @const72
+00008D  @PSTRINGC_38400_62_63
+000018  @const74
+0000B5  @PSTRINGC7_38400_62_63
+000022  @const76
+00002C  @const77
+00003B  @const78
+00004B  @const79
+00005C  @const80
+00006D  @const81
+000070  @const88
+00007F  @const89
+000116  @cinit1
+000128  @cinit2
+
+Project Directory:
+    F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej5\
+
+Project Files:
+    ej5.c                                                   [19-Ene-17 01:26  CRC=F68B418F]
+    C:\Archivos de programa\PICC\devices\16f877.h           [30-Nov-12 17:59  CRC=5ABE99AD]
+
+Source signature=AC0874E9
+
+Units:
+    ej5 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      ej5.err
+    Ext Symbols: ej5.esym
+    INHX8:       ej5.hex
+    Symbols:     ej5.sym
+    List:        ej5.lst
+    Debug/COFF:  ej5.cof
+    Project:     ej5.PJT
+    Call Tree:   ej5.tre
+    Statistics:  ej5.STA

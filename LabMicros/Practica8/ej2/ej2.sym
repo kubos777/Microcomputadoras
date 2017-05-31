@@ -1,0 +1,47 @@
+008     PSP_DATA
+015-016 CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B-01C CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     puertoB
+021     puertoC
+022     temp
+023     @TRIS_C
+024     entrada
+025     tabla.valor
+025     main.@SCRATCH
+026     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B     @SCRATCH
+
+0088  @delay_ms1
+1F00  loader16F877
+009B  main
+0004  tabla
+009B  @cinit
+
+Project Files:
+    D:\PracticaOcho\ej2\ej2.c
+    C:\Program Files (x86)\PICC\devices\16f877.h
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   8
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: 1,8,16
+
+Output Files:
+    Errors:      D:\PracticaOcho\ej2\ej2.err
+    INHX8:       D:\PracticaOcho\ej2\ej2.HEX
+    Symbols:     D:\PracticaOcho\ej2\ej2.SYM
+    List:        D:\PracticaOcho\ej2\ej2.LST
+    Debug/COFF:  D:\PracticaOcho\ej2\ej2.cof
+    Call Tree:   D:\PracticaOcho\ej2\ej2.tre
+    Statistics:  D:\PracticaOcho\ej2\ej2.sta

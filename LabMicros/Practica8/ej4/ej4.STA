@@ -1,0 +1,52 @@
+
+ROM used:   187 (2%)
+            2049 (25%) including unused fragments
+
+            1 Average locations per line
+            23 Average locations per statement
+
+RAM used:   6 (2%) at main() level
+            9 (2%) worst case
+
+Stack used: 2/8 worst case (1 in main + 1 for interrupts)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   16     8 100  ej4.c
+  302     0   0  C:\Archivos de programa\PICC\devices\16f877.h
+----- -----
+  318     8 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20  11   1             @delay_ms1
+3      1   1   0     5  1.0  loader16F877
+0     56  30   1   130  1.6  MAIN
+0     15   8   0             @const70
+0     77  41   4             @PSTRINGC7_38400_62_63
+0     14   7   0             @const72
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              8
+    Comments                78
+    Volume (V)              159
+    Difficulty (D)          1.9
+    Effort to implement (E) 303
+    Time to implement (T)   0 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    113
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   182  1862  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01EFF     0  1792  
+01F00-01FFF     1  255  
+
+
+

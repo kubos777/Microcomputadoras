@@ -1,0 +1,48 @@
+
+ROM used:   27 (0%)
+            2049 (25%) including unused fragments
+
+            0 Average locations per line
+            7 Average locations per statement
+
+RAM used:   6 (2%) at main() level
+            6 (2%) worst case
+
+Stack used: 1/8 worst case (0 in main + 1 for interrupts)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   12     4 100  ej3.c
+  302     0   0  C:\Archivos de programa\PICC\devices\16f877.h
+----- -----
+  314     4 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+3      1   4   0     5  1.0  loader16F877
+0     22  81   0    54  1.8  MAIN
+ Inline        0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              4
+    Comments                76
+    Volume (V)              72
+    Difficulty (D)          2.3
+    Effort to implement (E) 168
+    Time to implement (T)   0 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    135
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF    22  2022  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01EFF     0  1792  
+01F00-01FFF     1  255  
+
+
+

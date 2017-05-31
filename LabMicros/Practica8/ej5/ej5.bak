@@ -1,0 +1,95 @@
+#include <16f877.h>
+#fuses HS,NOPROTECT,
+#use delay(clock=20000000)
+#use rs232(baud=38400, xmit=PIN_C6, rcv=PIN_C7) // (xmit=pinc_c6 ) = tx , (rcv=PIN_C7)= Rx
+#org 0x1F00, 0x1FFF void loader16F877(void) {} //for the 8k 16F876/7
+char opcion;
+int i=0;
+void main(){
+while(1){
+printf("Indica la opciòn: \n");
+printf("0.-Apaga los leds\n");
+printf("1.-Prende los leds\n");
+printf("2.-Corrimiento a la derecha\n");
+printf("3.-Corrimiento a la izquierda\n");
+printf("4.-Corrimiento hacia ambos lados\n");
+printf("5.-Prende y apaga todos los leds");
+printf("salir");
+opcion=getch();
+putc(opcion);
+switch(opcion){
+   case '0':
+      output_b(0x00); //En ensamblador hubieramos mandado 0 al puerto B
+      break;
+   case '1':
+      output_b(0xFF); //En ensamblador hubieramos mandado 0 al puerto B
+      break;
+   case '2':
+      int valor =128;
+      int aux=0;
+      while(valor>0){
+         output_b(valor);
+         delay_ms(1000); //Enn ensamblador se debiò crear una rutina con el tiempo de cada instrucciòn
+         aux=valor/2;
+         valor=valor-aux;
+         if(valor==1)
+            break;
+      }
+      
+
+      break; 
+   case '3':
+         int valor2 =1;
+      int aux2=0;
+      while(valor2<=128){
+         output_b(valor2);
+         delay_ms(1000); //Enn ensamblador se debiò crear una rutina con el tiempo de cada instrucciòn
+         aux2=valor2*2;
+         valor2=valor2;
+      }
+      
+   break;
+   case '4':
+   int var2;
+            var2=0x80;
+            output_b(var2);
+            delay_ms(1000);
+          
+ 
+            do{
+                var2=var2/2;
+                output_b(var2); 
+                delay_ms(1000);
+            }while (var2!=1);
+        
+            var2=0x01;
+            output_b(var2);
+            delay_ms(1000);
+            do{
+                var2+=var2;
+                output_b(var2); 
+                delay_ms(1000);
+            }while (var2!=0x80);  
+            
+   break;
+   case '5':
+      int conta=0;
+      while(conta<5){
+      output_b(0xff); //poner unos en todos los bits del puerto b
+      printf(" Todos los bits encendidos \n\r"); //impresion de pantalla
+      delay_ms(1000); // retardo fe un segundo
+      output_b(0x00);//poner ceros en todos los bits del puerto b
+      printf(" Todos los leds apagados \n\r"); // impresion de pantalla
+      delay_ms(1000); // retardo de un segundo
+      conta++;
+      }//while
+
+      break;
+      default:
+      break;
+      
+
+}
+
+}
+}//main

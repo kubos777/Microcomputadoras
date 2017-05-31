@@ -1,0 +1,58 @@
+CCS PCM C Compiler, Version 4.140, 23125               19-Ene-17 00:08
+
+               Filename:   F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej3\ej3.lst
+
+               ROM used:   27 words (0%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           6 (2%) worst case
+               Stack:     1 worst case (0 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f877.h> 
+.................... //////// Standard Header file for the PIC16F877 device //////////////// 
+.................... #device PIC16F877 
+.................... #list 
+....................  
+.................... #fuses HS,NOPROTECT, 
+.................... #use delay(clock=20000000) 
+.................... #org 0x1F00, 0x1FFF void loader16F877(void) {} //for the 8k 16F876/7 
+*
+1F00:  RETURN
+.................... int var1; //Se inicializa una variable, en ensamblador seria var1  EQU y una direcciòn disponible 
+.................... void main(){ 
+*
+0004:  CLRF   04
+0005:  BCF    03.7
+0006:  MOVLW  1F
+0007:  ANDWF  03,F
+0008:  BSF    03.5
+0009:  BSF    1F.0
+000A:  BSF    1F.1
+000B:  BSF    1F.2
+000C:  BCF    1F.3
+.................... while(1){  //Siempre 
+.................... var1=input_a(); //En ensamblador hubieramos configurado el puerto A como entrada 
+000D:  MOVLW  FF
+000E:  MOVWF  05
+000F:  BCF    03.5
+0010:  MOVF   05,W
+0011:  MOVWF  20
+.................... output_b(var1); //Lo que se lee en el puerto A se manda directamente al puerto B 
+0012:  BSF    03.5
+0013:  CLRF   06
+0014:  BCF    03.5
+0015:  MOVF   20,W
+0016:  MOVWF  06
+.................... }//while 
+0017:  BSF    03.5
+0018:  GOTO   00D
+.................... }//main 
+0019:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

@@ -1,0 +1,40 @@
+[PROJECT]
+Target=ej1p8.HEX
+Development_Mode=2
+Processor=0x877F
+Processor_Text=PIC16F877
+ToolSuite=CCS
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+
+[Target Data]
+FileList=F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej1p8.c
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+
+[ej1p8.c]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[mru-list]
+1=ej1p8.c
+
+[Windows]
+0=0000 ej1p8.c 0 0 796 451 3 0
+
+[Opened Files]
+1=ej1p8.c
+2=ej2\ej2.c
+3=
+[Units]
+Count=1
+1=ej1p8 (main)

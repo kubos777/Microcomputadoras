@@ -1,0 +1,63 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+021     MAIN.@SCRATCH1
+021     @PSTRINGC7_38400_62_63.@SCRATCH1
+022     @delay_ms1.P1
+022     @PSTRINGC7_38400_62_63.@SCRATCH2
+023     @PSTRINGC7_38400_62_63.@SCRATCH3
+024     @PSTRINGC7_38400_62_63.@SCRATCH4
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+00006E  @delay_ms1
+001F00  loader16F877
+000082  MAIN
+000004  @const70
+000021  @PSTRINGC7_38400_62_63
+000013  @const72
+000082  @cinit1
+000093  @cinit2
+
+Project Directory:
+    F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej4\
+
+Project Files:
+    ej4.c                                                   [19-Ene-17 00:16  CRC=90AB00BA]
+    C:\Archivos de programa\PICC\devices\16f877.h           [30-Nov-12 17:59  CRC=5ABE99AD]
+
+Source signature=46283414
+
+Units:
+    ej4 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      ej4.err
+    Ext Symbols: ej4.esym
+    INHX8:       ej4.hex
+    Symbols:     ej4.sym
+    List:        ej4.lst
+    Debug/COFF:  ej4.cof
+    Project:     ej4.PJT
+    Call Tree:   ej4.tre
+    Statistics:  ej4.STA

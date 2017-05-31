@@ -1,0 +1,92 @@
+CCS PCM C Compiler, Version 4.140, 23125               18-Ene-17 23:53
+
+               Filename:   F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej1p8.lst
+
+               ROM used:   59 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           7 (2%) worst case
+               Stack:     2 worst case (1 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <16f877.h> 
+.................... //////// Standard Header file for the PIC16F877 device //////////////// 
+.................... #device PIC16F877 
+.................... #list 
+....................  
+.................... #fuses HS,NOPROTECT,  //Indicamos que trabajaremos a alta frecuencia 
+.................... #use delay(clock=20000000) //Frecuencia de oscilaciòn de acuerdo al cristal ensamblado 
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... #org 0x1F00, 0x1FFF void loader16F877(void) {} 
+*
+1F00:  RETURN
+.................... void main(){ 
+*
+0018:  CLRF   04
+0019:  BCF    03.7
+001A:  MOVLW  1F
+001B:  ANDWF  03,F
+001C:  BSF    03.5
+001D:  BSF    1F.0
+001E:  BSF    1F.1
+001F:  BSF    1F.2
+0020:  BCF    1F.3
+.................... //De aquì para arriba es la plantilla para C compiler 
+.................... while(1){ 
+....................  output_b(0x01); //En ensamblador debimos configurar los registros TRIS para usar el puerto B 
+0021:  CLRF   06
+0022:  MOVLW  01
+0023:  BCF    03.5
+0024:  MOVWF  06
+....................  delay_ms(1000); //Enn ensamblador se debiò crear una rutina con el tiempo de cada instrucciòn 
+0025:  MOVLW  04
+0026:  MOVWF  21
+0027:  MOVLW  FA
+0028:  MOVWF  22
+0029:  CALL   004
+002A:  DECFSZ 21,F
+002B:  GOTO   027
+....................  output_b(0x00); //En ensamblador hubieramos mandado 0 al puerto B 
+002C:  BSF    03.5
+002D:  CLRF   06
+002E:  BCF    03.5
+002F:  CLRF   06
+....................  delay_ms(1000); //Retardo 1 seg 
+0030:  MOVLW  04
+0031:  MOVWF  21
+0032:  MOVLW  FA
+0033:  MOVWF  22
+0034:  CALL   004
+0035:  DECFSZ 21,F
+0036:  GOTO   032
+.................... }//while 
+0037:  BSF    03.5
+0038:  GOTO   021
+.................... }//main 
+0039:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

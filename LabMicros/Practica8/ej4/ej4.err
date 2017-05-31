@@ -1,0 +1,4 @@
+>>> Warning 203 "ej4.c" Line 7(1,1): Condition always TRUE
+      Memory usage:   ROM=2%      RAM=2% - 2%
+      0 Errors,  1 Warnings.
+Build Successful.

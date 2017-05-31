@@ -1,0 +1,54 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     var1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+001F00  loader16F877
+000004  MAIN
+000004  @cinit1
+00000D  @cinit2
+
+Project Directory:
+    F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej3\
+
+Project Files:
+    ej3.c                                                   [19-Ene-17 00:06  CRC=CEBA2BB6]
+    C:\Archivos de programa\PICC\devices\16f877.h           [30-Nov-12 17:59  CRC=5ABE99AD]
+
+Source signature=84375F10
+
+Units:
+    ej3 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      ej3.err
+    Ext Symbols: ej3.esym
+    INHX8:       ej3.hex
+    Symbols:     ej3.sym
+    List:        ej3.lst
+    Debug/COFF:  ej3.cof
+    Project:     ej3.PJT
+    Call Tree:   ej3.tre
+    Statistics:  ej3.STA

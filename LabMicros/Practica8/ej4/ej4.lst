@@ -1,0 +1,116 @@
+CCS PCM C Compiler, Version 4.140, 23125               19-Ene-17 00:16
+
+               Filename:   F:\Semestre 20172\LaboratorioMicros\PracticasMicros\PracticaOcho\ej4\ej4.lst
+
+               ROM used:   187 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           9 (2%) worst case
+               Stack:     2 worst case (1 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   082
+0003:  NOP
+.................... #include <16f877.h> 
+.................... //////// Standard Header file for the PIC16F877 device //////////////// 
+.................... #device PIC16F877 
+.................... #list 
+....................  
+.................... #fuses HS,NOPROTECT, 
+.................... #use delay(clock=20000000) 
+006E:  MOVLW  22
+006F:  MOVWF  04
+0070:  BCF    03.7
+0071:  MOVF   00,W
+0072:  BTFSC  03.2
+0073:  GOTO   081
+0074:  MOVLW  06
+0075:  MOVWF  78
+0076:  CLRF   77
+0077:  DECFSZ 77,F
+0078:  GOTO   077
+0079:  DECFSZ 78,F
+007A:  GOTO   076
+007B:  MOVLW  7B
+007C:  MOVWF  77
+007D:  DECFSZ 77,F
+007E:  GOTO   07D
+007F:  DECFSZ 00,F
+0080:  GOTO   074
+0081:  RETURN
+.................... #use rs232(baud=38400, xmit=PIN_C6, rcv=PIN_C7) // (xmit=pinc_c6 ) = tx , (rcv=PIN_C7)= Rx 
+.................... #org 0x1F00, 0x1FFF void loader16F877(void) {} //for the 8k 16F876/7 
+*
+1F00:  RETURN
+.................... void main(){ 
+*
+0082:  CLRF   04
+0083:  BCF    03.7
+0084:  MOVLW  1F
+0085:  ANDWF  03,F
+0086:  MOVLW  20
+0087:  BSF    03.5
+0088:  MOVWF  19
+0089:  MOVLW  A6
+008A:  MOVWF  18
+008B:  MOVLW  90
+008C:  BCF    03.5
+008D:  MOVWF  18
+008E:  BSF    03.5
+008F:  BSF    1F.0
+0090:  BSF    1F.1
+0091:  BSF    1F.2
+0092:  BCF    1F.3
+.................... while(1){ 
+....................  output_b(0xff); //poner unos en todos los bits del puerto b 
+0093:  CLRF   06
+0094:  MOVLW  FF
+0095:  BCF    03.5
+0096:  MOVWF  06
+....................  printf(" Todos los bits encendidos \n\r"); //impresion de pantalla 
+0097:  MOVLW  04
+0098:  BSF    03.6
+0099:  MOVWF  0D
+009A:  MOVLW  00
+009B:  MOVWF  0F
+009C:  BCF    03.6
+009D:  CALL   021
+....................  delay_ms(1000); // retardo fe un segundo 
+009E:  MOVLW  04
+009F:  MOVWF  21
+00A0:  MOVLW  FA
+00A1:  MOVWF  22
+00A2:  CALL   06E
+00A3:  DECFSZ 21,F
+00A4:  GOTO   0A0
+....................  output_b(0x00);//poner ceros en todos los bits del puerto b 
+00A5:  BSF    03.5
+00A6:  CLRF   06
+00A7:  BCF    03.5
+00A8:  CLRF   06
+....................  printf(" Todos los leds apagados \n\r"); // impresion de pantalla 
+00A9:  MOVLW  13
+00AA:  BSF    03.6
+00AB:  MOVWF  0D
+00AC:  MOVLW  00
+00AD:  MOVWF  0F
+00AE:  BCF    03.6
+00AF:  CALL   021
+....................  delay_ms(1000); // retardo de un segundo 
+00B0:  MOVLW  04
+00B1:  MOVWF  21
+00B2:  MOVLW  FA
+00B3:  MOVWF  22
+00B4:  CALL   06E
+00B5:  DECFSZ 21,F
+00B6:  GOTO   0B2
+.................... }//while 
+00B7:  BSF    03.5
+00B8:  GOTO   093
+.................... }//main 
+00B9:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

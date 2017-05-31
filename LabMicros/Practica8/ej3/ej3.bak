@@ -1,0 +1,11 @@
+#include <16f877.h>
+#fuses HS,NOPROTECT,
+#use delay(clock=20000000)
+#org 0x1F00, 0x1FFF void loader16F877(void) {} //for the 8k 16F876/7
+int var1=0xff;
+void main(){
+while(1){
+var1=input_a();
+output_b(var1);
+}//while
+}//main

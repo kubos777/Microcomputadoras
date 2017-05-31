@@ -1,0 +1,524 @@
+CCS PCM C Compiler, Version 3.184, 22094
+
+               Filename: D:\PracticaOcho\ej2\ej2.LST
+
+               ROM used: 371 (5%)
+                         Largest free fragment is 2048
+               RAM used: 10 (6%) at main() level
+                         12 (7%) worst case
+               Stack:    2 worst case (1 in main + 1 for interrupts)
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   09B
+0003:  NOP
+....................  #include <16f877.h> 
+....................  //////// Standard Header file for the PIC16F877 device ////////////////  
+.................... #device PIC16F877  
+.................... #list  
+....................  
+.................... #fuses HS,NOPROTECT,  //Indicamos que trabajaremos a alta frecuencia  
+.................... #use delay(clock=20000000) //Frecuencia de oscilaciòn de acuerdo al cristal ensamblado  
+*
+0088:  MOVLW  26
+0089:  MOVWF  04
+008A:  MOVF   00,W
+008B:  BTFSC  03.2
+008C:  GOTO   09A
+008D:  MOVLW  06
+008E:  MOVWF  78
+008F:  CLRF   77
+0090:  DECFSZ 77,F
+0091:  GOTO   090
+0092:  DECFSZ 78,F
+0093:  GOTO   08F
+0094:  MOVLW  7B
+0095:  MOVWF  77
+0096:  DECFSZ 77,F
+0097:  GOTO   096
+0098:  DECFSZ 00,F
+0099:  GOTO   08D
+009A:  RETLW  00
+.................... #org 0x1F00, 0x1FFF void loader16F877(void) {}  
+*
+1F00:  RETLW  00
+....................   
+.................... int puertoB = 0xF;  
+*
+00A1:  MOVLW  0F
+00A2:  BCF    03.5
+00A3:  MOVWF  20
+.................... int puertoC = 0x0;  
+00A4:  CLRF   21
+.................... int temp = 0;  
+00A5:  CLRF   22
+....................   
+.................... int tabla (int);  
+.................... void swap ();  
+....................   
+.................... void main(){  
+....................    output_b(tabla(puertoB));  
+*
+009B:  CLRF   04
+009C:  MOVLW  1F
+009D:  ANDWF  03,F
+009E:  MOVLW  06
+009F:  BSF    03.5
+00A0:  MOVWF  1F
+*
+00A8:  MOVF   20,W
+00A9:  MOVWF  25
+00AA:  CALL   004
+00AB:  MOVLW  00
+00AC:  BSF    03.5
+00AD:  MOVWF  06
+00AE:  BCF    03.5
+00AF:  MOVF   78,W
+00B0:  MOVWF  06
+....................    output_c(tabla(puertoC));  
+*
+00A6:  MOVLW  FF
+00A7:  MOVWF  23
+*
+00B1:  MOVF   21,W
+00B2:  MOVWF  25
+00B3:  CALL   004
+00B4:  MOVLW  00
+00B5:  MOVWF  23
+00B6:  BSF    03.5
+00B7:  MOVWF  07
+00B8:  BCF    03.5
+00B9:  MOVF   78,W
+00BA:  MOVWF  07
+....................      
+....................    while(1){  
+....................       int entrada;  
+....................       entrada = input_a();  
+00BB:  MOVLW  FF
+00BC:  BSF    03.5
+00BD:  MOVWF  05
+00BE:  BCF    03.5
+00BF:  MOVF   05,W
+00C0:  MOVWF  24
+....................         
+....................       switch (entrada) {  
+00C1:  MOVF   24,W
+00C2:  MOVWF  77
+00C3:  MOVLW  01
+00C4:  SUBWF  77,W
+00C5:  BTFSC  03.2
+00C6:  GOTO   0D8
+00C7:  MOVLW  02
+00C8:  SUBWF  77,W
+00C9:  BTFSC  03.2
+00CA:  GOTO   0F2
+00CB:  MOVLW  04
+00CC:  SUBWF  77,W
+00CD:  BTFSC  03.2
+00CE:  GOTO   108
+00CF:  MOVLW  08
+00D0:  SUBWF  77,W
+00D1:  BTFSC  03.2
+00D2:  GOTO   139
+00D3:  MOVLW  10
+00D4:  SUBWF  77,W
+00D5:  BTFSC  03.2
+00D6:  GOTO   154
+00D7:  GOTO   170
+....................          case 1:  
+....................             temp = puertoB;  
+00D8:  MOVF   20,W
+00D9:  MOVWF  22
+....................             puertoB = puertoC;  
+00DA:  MOVF   21,W
+00DB:  MOVWF  20
+....................             puertoC = temp;  
+00DC:  MOVF   22,W
+00DD:  MOVWF  21
+....................             output_b(tabla(puertoB));  
+00DE:  MOVF   20,W
+00DF:  MOVWF  25
+00E0:  CALL   004
+00E1:  MOVLW  00
+00E2:  BSF    03.5
+00E3:  MOVWF  06
+00E4:  BCF    03.5
+00E5:  MOVF   78,W
+00E6:  MOVWF  06
+....................             output_c(tabla(puertoC));  
+00E7:  MOVF   21,W
+00E8:  MOVWF  25
+00E9:  CALL   004
+00EA:  MOVLW  00
+00EB:  MOVWF  23
+00EC:  BSF    03.5
+00ED:  MOVWF  07
+00EE:  BCF    03.5
+00EF:  MOVF   78,W
+00F0:  MOVWF  07
+....................             break;  
+00F1:  GOTO   170
+....................          case 2:  
+....................             puertoB = 0;  
+00F2:  CLRF   20
+....................             puertoC = 0;  
+00F3:  CLRF   21
+....................             output_b(tabla(puertoB));  
+00F4:  MOVF   20,W
+00F5:  MOVWF  25
+00F6:  CALL   004
+00F7:  MOVLW  00
+00F8:  BSF    03.5
+00F9:  MOVWF  06
+00FA:  BCF    03.5
+00FB:  MOVF   78,W
+00FC:  MOVWF  06
+....................             output_c(tabla(puertoC));  
+00FD:  MOVF   21,W
+00FE:  MOVWF  25
+00FF:  CALL   004
+0100:  MOVLW  00
+0101:  MOVWF  23
+0102:  BSF    03.5
+0103:  MOVWF  07
+0104:  BCF    03.5
+0105:  MOVF   78,W
+0106:  MOVWF  07
+....................             break;  
+0107:  GOTO   170
+....................          case 4:  
+....................             while (1) {  
+....................                output_b(0x00); //poner unos en todos los bits del puerto b  
+0108:  MOVLW  00
+0109:  BSF    03.5
+010A:  MOVWF  06
+010B:  BCF    03.5
+010C:  CLRF   06
+....................                output_c(0x00); //poner unos en todos los bits del puerto b  
+010D:  MOVWF  23
+010E:  BSF    03.5
+010F:  MOVWF  07
+0110:  BCF    03.5
+0111:  CLRF   07
+....................                delay_ms(1000); // retardo fe un segundo  
+0112:  MOVLW  04
+0113:  MOVWF  25
+0114:  MOVLW  FA
+0115:  MOVWF  26
+0116:  CALL   088
+0117:  DECFSZ 25,F
+0118:  GOTO   114
+....................                output_b(tabla(puertoB));  
+0119:  MOVF   20,W
+011A:  MOVWF  25
+011B:  CALL   004
+011C:  MOVLW  00
+011D:  BSF    03.5
+011E:  MOVWF  06
+011F:  BCF    03.5
+0120:  MOVF   78,W
+0121:  MOVWF  06
+....................                output_c(tabla(puertoC));  
+0122:  MOVF   21,W
+0123:  MOVWF  25
+0124:  CALL   004
+0125:  MOVLW  00
+0126:  MOVWF  23
+0127:  BSF    03.5
+0128:  MOVWF  07
+0129:  BCF    03.5
+012A:  MOVF   78,W
+012B:  MOVWF  07
+....................                delay_ms(1000); // retardo fe un segundo  
+012C:  MOVLW  04
+012D:  MOVWF  25
+012E:  MOVLW  FA
+012F:  MOVWF  26
+0130:  CALL   088
+0131:  DECFSZ 25,F
+0132:  GOTO   12E
+....................                if (entrada == 4)  
+....................                   break;  
+0133:  MOVF   24,W
+0134:  SUBLW  04
+0135:  BTFSC  03.2
+0136:  GOTO   138
+....................             }  
+0137:  GOTO   108
+....................             break;  
+0138:  GOTO   170
+....................          case 8:  
+....................             puertoC ++;  
+0139:  INCF   21,F
+....................             if (puertoC == 0x10) {  
+013A:  MOVF   21,W
+013B:  SUBLW  10
+013C:  BTFSS  03.2
+013D:  GOTO   140
+....................                puertoC = 0x00;  
+013E:  CLRF   21
+....................                puertoB++;  
+013F:  INCF   20,F
+....................             }  
+....................             output_b(tabla(puertoB));  
+0140:  MOVF   20,W
+0141:  MOVWF  25
+0142:  CALL   004
+0143:  MOVLW  00
+0144:  BSF    03.5
+0145:  MOVWF  06
+0146:  BCF    03.5
+0147:  MOVF   78,W
+0148:  MOVWF  06
+....................             output_c(tabla(puertoC));  
+0149:  MOVF   21,W
+014A:  MOVWF  25
+014B:  CALL   004
+014C:  MOVLW  00
+014D:  MOVWF  23
+014E:  BSF    03.5
+014F:  MOVWF  07
+0150:  BCF    03.5
+0151:  MOVF   78,W
+0152:  MOVWF  07
+....................             break;                            
+0153:  GOTO   170
+....................          case 16:  
+....................          //10  
+....................             puertoC --;  
+0154:  DECF   21,F
+....................             //1F  
+....................             if (puertoC < 0x0F) {  
+0155:  MOVF   21,W
+0156:  SUBLW  0E
+0157:  BTFSS  03.0
+0158:  GOTO   15C
+....................                puertoC = 0x0F;  
+0159:  MOVLW  0F
+015A:  MOVWF  21
+....................                puertoB--;  
+015B:  DECF   20,F
+....................             }  
+....................             output_b(tabla(puertoB));  
+015C:  MOVF   20,W
+015D:  MOVWF  25
+015E:  CALL   004
+015F:  MOVLW  00
+0160:  BSF    03.5
+0161:  MOVWF  06
+0162:  BCF    03.5
+0163:  MOVF   78,W
+0164:  MOVWF  06
+....................             output_c(tabla(puertoC));  
+0165:  MOVF   21,W
+0166:  MOVWF  25
+0167:  CALL   004
+0168:  MOVLW  00
+0169:  MOVWF  23
+016A:  BSF    03.5
+016B:  MOVWF  07
+016C:  BCF    03.5
+016D:  MOVF   78,W
+016E:  MOVWF  07
+....................             break;  
+016F:  GOTO   170
+....................       }  
+....................    }  
+0170:  GOTO   0BB
+.................... }  
+....................   
+.................... int tabla(int valor) {  
+....................    switch (valor) {  
+*
+0004:  MOVF   25,W
+0005:  MOVWF  77
+0006:  MOVF   77,F
+0007:  BTFSC  03.2
+0008:  GOTO   046
+0009:  MOVLW  01
+000A:  SUBWF  77,W
+000B:  BTFSC  03.2
+000C:  GOTO   04A
+000D:  MOVLW  02
+000E:  SUBWF  77,W
+000F:  BTFSC  03.2
+0010:  GOTO   04E
+0011:  MOVLW  03
+0012:  SUBWF  77,W
+0013:  BTFSC  03.2
+0014:  GOTO   052
+0015:  MOVLW  04
+0016:  SUBWF  77,W
+0017:  BTFSC  03.2
+0018:  GOTO   056
+0019:  MOVLW  05
+001A:  SUBWF  77,W
+001B:  BTFSC  03.2
+001C:  GOTO   05A
+001D:  MOVLW  06
+001E:  SUBWF  77,W
+001F:  BTFSC  03.2
+0020:  GOTO   05E
+0021:  MOVLW  07
+0022:  SUBWF  77,W
+0023:  BTFSC  03.2
+0024:  GOTO   062
+0025:  MOVLW  08
+0026:  SUBWF  77,W
+0027:  BTFSC  03.2
+0028:  GOTO   066
+0029:  MOVLW  09
+002A:  SUBWF  77,W
+002B:  BTFSC  03.2
+002C:  GOTO   06A
+002D:  MOVLW  0A
+002E:  SUBWF  77,W
+002F:  BTFSC  03.2
+0030:  GOTO   06E
+0031:  MOVLW  0B
+0032:  SUBWF  77,W
+0033:  BTFSC  03.2
+0034:  GOTO   072
+0035:  MOVLW  0C
+0036:  SUBWF  77,W
+0037:  BTFSC  03.2
+0038:  GOTO   076
+0039:  MOVLW  0D
+003A:  SUBWF  77,W
+003B:  BTFSC  03.2
+003C:  GOTO   07A
+003D:  MOVLW  0E
+003E:  SUBWF  77,W
+003F:  BTFSC  03.2
+0040:  GOTO   07E
+0041:  MOVLW  0F
+0042:  SUBWF  77,W
+0043:  BTFSC  03.2
+0044:  GOTO   082
+0045:  GOTO   086
+*
+0171:  SLEEP
+....................       case 0:  
+....................          return 63;  
+*
+0046:  MOVLW  3F
+0047:  MOVWF  78
+0048:  GOTO   087
+....................          break;  
+0049:  GOTO   087
+....................       case 1:  
+....................          return 6;  
+004A:  MOVLW  06
+004B:  MOVWF  78
+004C:  GOTO   087
+....................          break;  
+004D:  GOTO   087
+....................       case 2:  
+....................          return 91;  
+004E:  MOVLW  5B
+004F:  MOVWF  78
+0050:  GOTO   087
+....................          break;  
+0051:  GOTO   087
+....................       case 3:  
+....................          return 79;  
+0052:  MOVLW  4F
+0053:  MOVWF  78
+0054:  GOTO   087
+....................          break;  
+0055:  GOTO   087
+....................       case 4:  
+....................          return 102;  
+0056:  MOVLW  66
+0057:  MOVWF  78
+0058:  GOTO   087
+....................          break;  
+0059:  GOTO   087
+....................       case 5:  
+....................          return 109;  
+005A:  MOVLW  6D
+005B:  MOVWF  78
+005C:  GOTO   087
+....................          break;  
+005D:  GOTO   087
+....................       case 6:  
+....................          return 125;  
+005E:  MOVLW  7D
+005F:  MOVWF  78
+0060:  GOTO   087
+....................          break;  
+0061:  GOTO   087
+....................       case 7:  
+....................          return 7;  
+0062:  MOVLW  07
+0063:  MOVWF  78
+0064:  GOTO   087
+....................          break;  
+0065:  GOTO   087
+....................       case 8:  
+....................          return 127;  
+0066:  MOVLW  7F
+0067:  MOVWF  78
+0068:  GOTO   087
+....................          break;  
+0069:  GOTO   087
+....................       case 9:  
+....................          return 103;  
+006A:  MOVLW  67
+006B:  MOVWF  78
+006C:  GOTO   087
+....................          break;  
+006D:  GOTO   087
+....................       case 0xA:  
+....................          return 119;  
+006E:  MOVLW  77
+006F:  MOVWF  78
+0070:  GOTO   087
+....................          break;  
+0071:  GOTO   087
+....................       case 0xB:  
+....................          return 124;  
+0072:  MOVLW  7C
+0073:  MOVWF  78
+0074:  GOTO   087
+....................          break;  
+0075:  GOTO   087
+....................       case 0xC:  
+....................          return 57;  
+0076:  MOVLW  39
+0077:  MOVWF  78
+0078:  GOTO   087
+....................          break;  
+0079:  GOTO   087
+....................       case 0xD:  
+....................          return 94;  
+007A:  MOVLW  5E
+007B:  MOVWF  78
+007C:  GOTO   087
+....................          break;  
+007D:  GOTO   087
+....................       case 0xE:  
+....................          return 121;  
+007E:  MOVLW  79
+007F:  MOVWF  78
+0080:  GOTO   087
+....................          break;  
+0081:  GOTO   087
+....................       case 0xF:  
+....................          return 113;  
+0082:  MOVLW  71
+0083:  MOVWF  78
+0084:  GOTO   087
+....................          break;  
+0085:  GOTO   087
+....................       default:         
+....................          break;          
+0086:  GOTO   087
+....................    }   
+.................... }  
+0087:  RETLW  00
+....................  
+
+Configuration Fuses:
+   Word  1: 3FFE   HS WDT NOPUT NOPROTECT BROWNOUT LVP NOCPD NOWRT NODEBUG

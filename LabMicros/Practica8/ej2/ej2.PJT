@@ -1,0 +1,40 @@
+[PROJECT]
+Target=ej2.HEX
+Development_Mode=2
+Processor=0x877F
+Processor_Text=PIC16F877
+ToolSuite=CCS
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+
+[Target Data]
+FileList=ej2.c;
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+
+[ej2.c]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[mru-list]
+1=ej2.c
+
+[Windows]
+0=0000 ej2.c 0 0 796 451 3 0
+
+[Units]
+Count=1
+1=ej2 (main)
+[Opened Files]
+1=D:\PracticaOcho\ej2\ej2.c
+2=D:\PracticaOcho\ej2\ej2.lst
+3=
